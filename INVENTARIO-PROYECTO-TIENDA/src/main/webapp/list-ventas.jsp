@@ -26,7 +26,7 @@
         <tr>
             <th>ID</th>
             <th>Fecha Venta</th>
-            <th>Monto Total</th>
+            <th>Importe Total</th>
             <th>Empresa</th>
             <th>Cliente</th>
             <th>Acciones</th>

@@ -117,7 +117,7 @@ public class ClienteController extends HttpServlet {
         cliente.setProvincia(provincia);
         cliente.setEmpresa(empresa);
 
-        clienteDAO.insertCliente(cliente); // Los clientes se insertan por DNI
+        clienteDAO.insertCliente(cliente);
         response.sendRedirect("clientes?action=list");
     }
 

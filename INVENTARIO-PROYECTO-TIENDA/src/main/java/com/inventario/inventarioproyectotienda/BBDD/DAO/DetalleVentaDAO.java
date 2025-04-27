@@ -32,7 +32,7 @@ public class DetalleVentaDAO {
         try (Connection connection = BBDDConnector.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_DETALLE_VENTA)) {
             preparedStatement.setInt(1, detalleVenta.getCantidad());
-            preparedStatement.setBigDecimal(2, detalleVenta.getPrecioUnidad()); // Usamos setBigDecimal
+            preparedStatement.setBigDecimal(2, detalleVenta.getPrecioUnidad());
             preparedStatement.setInt(3, detalleVenta.getVenta().getIdVenta());
             preparedStatement.setInt(4, detalleVenta.getProducto().getIdProducto());
             int rowsAffected = preparedStatement.executeUpdate();
@@ -79,7 +79,7 @@ public class DetalleVentaDAO {
         try (Connection connection = BBDDConnector.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_DETALLE_VENTA)) {
             preparedStatement.setInt(1, detalleVenta.getCantidad());
-            preparedStatement.setBigDecimal(2, detalleVenta.getPrecioUnidad()); // Usamos setBigDecimal
+            preparedStatement.setBigDecimal(2, detalleVenta.getPrecioUnidad());
             preparedStatement.setInt(3, detalleVenta.getVenta().getIdVenta());
             preparedStatement.setInt(4, detalleVenta.getProducto().getIdProducto());
             preparedStatement.setInt(5, detalleVenta.getIdDetallesVenta());
@@ -107,14 +107,12 @@ public class DetalleVentaDAO {
         DetalleVenta detalleVenta = new DetalleVenta();
         detalleVenta.setIdDetallesVenta(resultSet.getInt("id_detalles_venta"));
         detalleVenta.setCantidad(resultSet.getInt("cantidad"));
-        detalleVenta.setPrecioUnidad(resultSet.getBigDecimal("precio_unidad")); // Usamos getBigDecimal
+        detalleVenta.setPrecioUnidad(resultSet.getBigDecimal("precio_unidad"));
 
-        // Recuperamos la Venta asociada
         int ventaId = resultSet.getInt("ventas_id_venta");
         Venta venta = ventaDAO.getVentaById(ventaId);
         detalleVenta.setVenta(venta);
 
-        // Recuperamos el Producto asociado
         int productoId = resultSet.getInt("productos_id_producto");
         Producto producto = productoDAO.getProductoById(productoId);
         detalleVenta.setProducto(producto);

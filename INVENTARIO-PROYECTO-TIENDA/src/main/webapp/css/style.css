@@ -99,7 +99,7 @@ h1, h3 {
 }
 
 .crm-logo {
-    max-width: 150px;
+    width: 150px;
     height: auto;
     margin-bottom: 20px;
 }

@@ -14,7 +14,7 @@
             var empresaSelect = document.getElementById("empresas_id_empresa");
             var guardarButton = document.getElementById("guardarVentaBtn");
 
-            // Deshabilitar el botón al cargar la página si no hay una empresa seleccionada inicialmente
+
             if (empresaSelect && empresaSelect.value === "") {
                 guardarButton.disabled = true;
             }
@@ -39,7 +39,7 @@
                     nuevaFila.style.display = '';
                     detallesVentaTableBody.appendChild(nuevaFila);
 
-                    // Re-attach event listener for the remove button in the new row
+
                     const eliminarBtn = nuevaFila.querySelector('.eliminarFila');
                     if (eliminarBtn) {
                         eliminarBtn.addEventListener('click', function() {
@@ -49,7 +49,7 @@
                 });
             }
 
-            // Add event listener for the remove button in the initial row
+
             if (detallesVentaTableBody) {
                 detallesVentaTableBody.addEventListener('click', function(event) {
                     if (event.target.classList.contains('eliminarFila')) {
